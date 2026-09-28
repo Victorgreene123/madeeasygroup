@@ -10,6 +10,7 @@ export interface SiteConfig {
   headline: string;
   subheadline: string;
   description: string;
+  url: string;
   phones: string[];
   primaryPhone: string;
   whatsappNumber: string;
@@ -49,6 +50,7 @@ export const SITE_CONFIG: SiteConfig = {
     'Secure, strategically located estates across Lagos with flexible payment plans designed to make property ownership easier.',
   description:
     'Made Easy Homes & Properties is a real estate company in Lagos State with over 10 years of experience providing affordable and quality land and property solutions. The company specializes in gated and fenced estates in strategic locations with flexible payment plans.',
+  url: 'https://madeeasygroup.net',
   phones: ['08086188318', '08060441161'],
   primaryPhone: '08086188318',
   whatsappNumber: '2348086188318',

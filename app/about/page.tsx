@@ -17,20 +17,41 @@ import {
   ChevronRight,
 } from '@/components/ui/Icons';
 
+import { BreadcrumbJsonLd } from '@/components/seo/JsonLd';
+
 export const metadata: Metadata = {
   title: `About Us | ${SITE_CONFIG.name}`,
   description:
     'Learn about Made Easy Homes & Properties: over 10 years of trusted land and property solutions in Lagos State, specializing in gated and fenced estates with flexible payment plans.',
+  alternates: {
+    canonical: `${SITE_CONFIG.url}/about`,
+  },
   openGraph: {
     title: `About Us | ${SITE_CONFIG.name}`,
     description:
       'Learn about Made Easy Homes & Properties: over 10 years of trusted land and property solutions in Lagos State.',
+    url: `${SITE_CONFIG.url}/about`,
+    siteName: SITE_CONFIG.name,
+    locale: 'en_NG',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `About Made Easy Homes & Properties`,
+    description:
+      'Over 10 years of trusted land and property solutions in Lagos State.',
   },
 };
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-slate-50/70 pb-24">
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', url: '/' },
+          { name: 'About Us', url: '/about' },
+        ]}
+      />
       {/* Breadcrumb */}
       <div className="bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-slate-500">
