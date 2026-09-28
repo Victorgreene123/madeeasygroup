@@ -101,7 +101,7 @@ export function BookInspectionClient() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50/70 pb-24">
+    <div className="min-h-screen bg-slate-50/70 pb-24 w-full max-w-full overflow-x-clip">
       {/* Breadcrumb Navigation */}
       <div className="bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center gap-2 text-xs text-slate-500">
@@ -269,28 +269,28 @@ export function BookInspectionClient() {
 
                     {/* Live Estate Preview Card */}
                     {selectedEstate && (
-                      <div className="flex flex-col sm:flex-row items-start gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200 transition-all">
+                      <div className="flex flex-col sm:flex-row items-start gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200 transition-all min-w-0 max-w-full">
                         <img
                           src={selectedEstate.images[0]}
                           alt={selectedEstate.name}
                           className="w-full sm:w-28 h-20 object-cover rounded-xl shrink-0"
                         />
-                        <div className="space-y-1 text-xs flex-1">
-                          <div className="flex items-center justify-between">
-                            <span className="font-bold text-slate-900 text-sm">
+                        <div className="space-y-1 text-xs flex-1 min-w-0 w-full">
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="font-bold text-slate-900 text-sm truncate">
                               {selectedEstate.name}
                             </span>
-                            <span className="font-bold text-[#0E6F3B] bg-[#e8f5ed] px-2 py-0.5 rounded text-[11px]">
+                            <span className="font-bold text-[#0E6F3B] bg-[#e8f5ed] px-2 py-0.5 rounded text-[11px] shrink-0">
                               {selectedEstate.priceNotice}
                             </span>
                           </div>
-                          <div className="flex items-center gap-1.5 text-slate-500">
-                            <MapPin size={13} className="text-[#0E6F3B]" />
-                            <span>{selectedEstate.location}</span>
+                          <div className="flex items-center gap-1.5 text-slate-500 truncate">
+                            <MapPin size={13} className="text-[#0E6F3B] shrink-0" />
+                            <span className="truncate">{selectedEstate.location}</span>
                           </div>
-                          <div className="flex items-center gap-1.5 text-slate-600">
-                            <ShieldCheck size={13} className="text-[#0E6F3B]" />
-                            <span>{selectedEstate.documentation}</span>
+                          <div className="flex items-center gap-1.5 text-slate-600 truncate">
+                            <ShieldCheck size={13} className="text-[#0E6F3B] shrink-0" />
+                            <span className="truncate">{selectedEstate.documentation}</span>
                           </div>
                         </div>
                       </div>
@@ -312,7 +312,7 @@ export function BookInspectionClient() {
                           value={preferredDay}
                           onChange={(e) => setPreferredDay(e.target.value)}
                           required
-                          className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0E6F3B] focus:bg-white"
+                          className="w-full max-w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0E6F3B] focus:bg-white"
                         >
                           <option value="Upcoming Thursday">Upcoming Thursday (10:00 AM)</option>
                           <option value="Upcoming Saturday">Upcoming Saturday (10:00 AM)</option>
@@ -326,9 +326,9 @@ export function BookInspectionClient() {
                         <label className="block text-xs font-semibold text-slate-600 mb-1.5">
                           Departure Time
                         </label>
-                        <div className="flex items-center gap-2 px-4 py-3 bg-slate-100 border border-slate-200 rounded-xl text-sm font-semibold text-slate-700">
-                          <Clock size={16} className="text-[#0E6F3B]" />
-                          <span>10:00 AM Departure (Prompt)</span>
+                        <div className="flex items-center gap-2 px-4 py-3 bg-slate-100 border border-slate-200 rounded-xl text-sm font-semibold text-slate-700 min-w-0">
+                          <Clock size={16} className="text-[#0E6F3B] shrink-0" />
+                          <span className="truncate">10:00 AM Departure (Prompt)</span>
                         </div>
                       </div>
                     </div>
@@ -342,7 +342,7 @@ export function BookInspectionClient() {
                           value={pickupPoint}
                           onChange={(e) => setPickupPoint(e.target.value)}
                           required
-                          className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0E6F3B] focus:bg-white"
+                          className="w-full max-w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0E6F3B] focus:bg-white"
                         >
                           <option value="Egbeda Head Office (Yemosa Plaza)">
                             Egbeda Head Office (Yemosa Plaza)
@@ -366,7 +366,7 @@ export function BookInspectionClient() {
                         <select
                           value={attendees}
                           onChange={(e) => setAttendees(e.target.value)}
-                          className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0E6F3B] focus:bg-white"
+                          className="w-full max-w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0E6F3B] focus:bg-white"
                         >
                           <option value="1 person">Just myself (1 seat)</option>
                           <option value="2 people">2 people (Self + Spouse / Partner)</option>
@@ -394,7 +394,7 @@ export function BookInspectionClient() {
                           placeholder="e.g. Adebayo Babatunde"
                           value={fullName}
                           onChange={(e) => setFullName(e.target.value)}
-                          className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0E6F3B] focus:bg-white"
+                          className="w-full max-w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0E6F3B] focus:bg-white"
                         />
                       </div>
 
@@ -408,7 +408,7 @@ export function BookInspectionClient() {
                           placeholder="e.g. 08012345678"
                           value={phone}
                           onChange={(e) => setPhone(e.target.value)}
-                          className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0E6F3B] focus:bg-white"
+                          className="w-full max-w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0E6F3B] focus:bg-white"
                         />
                       </div>
                     </div>
@@ -422,7 +422,7 @@ export function BookInspectionClient() {
                         placeholder="e.g. adebayo@example.com"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0E6F3B] focus:bg-white"
+                        className="w-full max-w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0E6F3B] focus:bg-white"
                       />
                     </div>
 
@@ -435,7 +435,7 @@ export function BookInspectionClient() {
                         placeholder="e.g. Looking for a commercial corner-piece plot, bringing independent surveyor, or need payment plan breakdown on-site..."
                         value={notes}
                         onChange={(e) => setNotes(e.target.value)}
-                        className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0E6F3B] focus:bg-white resize-y"
+                        className="w-full max-w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0E6F3B] focus:bg-white resize-y"
                       />
                     </div>
                   </div>
@@ -458,8 +458,8 @@ export function BookInspectionClient() {
                     </button>
 
                     <div className="flex items-center justify-center gap-2 text-xs text-slate-500 text-center">
-                      <ShieldCheck size={15} className="text-[#0E6F3B]" />
-                      <span>Zero inspection fee • No hidden costs • 100% verified developer allocation</span>
+                      <ShieldCheck size={15} className="text-[#0E6F3B] shrink-0" />
+                      <span className="leading-tight">Zero inspection fee • No hidden costs • 100% verified developer allocation</span>
                     </div>
                   </div>
                 </form>
@@ -468,9 +468,9 @@ export function BookInspectionClient() {
           </div>
 
           {/* Right Column: Experience Guide & Logistics (5 cols on desktop) */}
-          <div className="lg:col-span-5 space-y-6">
+          <div className="lg:col-span-5 space-y-6 min-w-0">
             {/* What to Expect Card */}
-            <div className="bg-[#164E48] text-white rounded-3xl p-6 sm:p-8 shadow-xl space-y-5">
+            <div className="bg-[#164E48] text-white rounded-3xl p-6 sm:p-8 shadow-xl space-y-5 overflow-hidden">
               <div className="space-y-1">
                 <span className="text-xs font-semibold uppercase tracking-wider text-emerald-300">
                   Site Tour Blueprint
@@ -482,11 +482,11 @@ export function BookInspectionClient() {
               </div>
 
               <div className="space-y-3.5 text-xs text-emerald-50">
-                <div className="flex items-start gap-3 bg-white/5 p-3 rounded-xl border border-white/10">
+                <div className="flex items-start gap-3 bg-white/5 p-3 rounded-xl border border-white/10 min-w-0">
                   <div className="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-300 font-bold flex items-center justify-center shrink-0">
                     1
                   </div>
-                  <div>
+                  <div className="min-w-0 flex-1">
                     <strong className="text-white block">10:00 AM Prompt Departure</strong>
                     <span className="text-emerald-100/80">
                       Board our vehicle at our Egbeda Head Office (Yemosa Plaza).
@@ -494,11 +494,11 @@ export function BookInspectionClient() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3 bg-white/5 p-3 rounded-xl border border-white/10">
+                <div className="flex items-start gap-3 bg-white/5 p-3 rounded-xl border border-white/10 min-w-0">
                   <div className="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-300 font-bold flex items-center justify-center shrink-0">
                     2
                   </div>
-                  <div>
+                  <div className="min-w-0 flex-1">
                     <strong className="text-white block">Guided Corridor Drive</strong>
                     <span className="text-emerald-100/80">
                       Learn about surrounding growth infrastructure, upcoming expressways, and government zoning.
@@ -506,11 +506,11 @@ export function BookInspectionClient() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3 bg-white/5 p-3 rounded-xl border border-white/10">
+                <div className="flex items-start gap-3 bg-white/5 p-3 rounded-xl border border-white/10 min-w-0">
                   <div className="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-300 font-bold flex items-center justify-center shrink-0">
                     3
                   </div>
-                  <div>
+                  <div className="min-w-0 flex-1">
                     <strong className="text-white block">Physical Beacon Inspection</strong>
                     <span className="text-emerald-100/80">
                       Walk the dry terrain, inspect perimeter gatehouses, and cross-check registered survey beacons.
@@ -518,11 +518,11 @@ export function BookInspectionClient() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3 bg-white/5 p-3 rounded-xl border border-white/10">
+                <div className="flex items-start gap-3 bg-white/5 p-3 rounded-xl border border-white/10 min-w-0">
                   <div className="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-300 font-bold flex items-center justify-center shrink-0">
                     4
                   </div>
-                  <div>
+                  <div className="min-w-0 flex-1">
                     <strong className="text-white block">Advisory & Zero Pressure Q&A</strong>
                     <span className="text-emerald-100/80">
                       Discuss flexible 12 to 24-month installment options with dedicated property managers.
@@ -536,8 +536,8 @@ export function BookInspectionClient() {
                 <span className="text-[11px] uppercase tracking-wider text-emerald-300 font-semibold block">
                   Direct Inspection Desk Helpline:
                 </span>
-                <div className="flex items-center gap-2 text-sm font-bold text-white">
-                  <Phone size={16} className="text-emerald-400" />
+                <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-bold text-white">
+                  <Phone size={16} className="text-emerald-400 shrink-0" />
                   <a href={`tel:${SITE_CONFIG.primaryPhone}`} className="hover:underline">
                     {SITE_CONFIG.primaryPhone}
                   </a>
@@ -550,15 +550,15 @@ export function BookInspectionClient() {
             </div>
 
             {/* Departure Address Card */}
-            <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-sm space-y-4">
+            <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-sm space-y-4 overflow-hidden">
               <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500">
                 Departure & Meeting Point
               </h4>
 
               <div className="space-y-3 text-xs text-slate-700">
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-3 min-w-0">
                   <Building2 size={18} className="text-[#0E6F3B] shrink-0 mt-0.5" />
-                  <div>
+                  <div className="min-w-0 flex-1">
                     <strong className="text-slate-900 block text-sm">
                       Made Easy Homes & Properties (Head Office)
                     </strong>
@@ -568,15 +568,15 @@ export function BookInspectionClient() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 pt-2 border-t border-slate-100 text-slate-600">
+                <div className="flex items-center gap-3 pt-2 border-t border-slate-100 text-slate-600 min-w-0">
                   <Clock size={16} className="text-[#0E6F3B] shrink-0" />
-                  <span>Departure Days: Thursdays & Saturdays at 10:00 AM prompt</span>
+                  <span className="truncate">Departure Days: Thursdays & Saturdays at 10:00 AM prompt</span>
                 </div>
               </div>
             </div>
 
             {/* Inspection FAQs Accordion */}
-            <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-sm">
+            <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-sm overflow-hidden">
               <FAQAccordion
                 badge="Tour FAQs"
                 title="Inspection Day FAQs"

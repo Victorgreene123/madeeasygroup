@@ -97,9 +97,9 @@ export function FAQAccordion({
                 type="button"
                 onClick={() => toggleItem(idx)}
                 aria-expanded={isOpen}
-                className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 group transition-colors select-none"
+                className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3 sm:gap-4 group transition-colors select-none min-w-0"
               >
-                <div className="flex items-start gap-3.5 sm:gap-4">
+                <div className="flex items-start gap-3 sm:gap-4 min-w-0 flex-1">
                   <span
                     className={`text-xs font-bold px-2 py-0.5 rounded-lg shrink-0 mt-0.5 transition-colors ${
                       isOpen
@@ -110,7 +110,7 @@ export function FAQAccordion({
                     {indexNum}
                   </span>
                   <span
-                    className={`text-sm sm:text-base font-bold leading-snug transition-colors ${
+                    className={`text-sm sm:text-base font-bold leading-snug transition-colors break-words min-w-0 flex-1 ${
                       isOpen
                         ? 'text-[#0E6F3B]'
                         : 'text-slate-900 group-hover:text-[#0E6F3B]'
@@ -132,8 +132,8 @@ export function FAQAccordion({
               </button>
 
               {isOpen && (
-                <div className="px-4 sm:px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 bg-[#fbfdfc] animate-in fade-in slide-in-from-top-1 duration-200">
-                  <div className="pl-8 sm:pl-10 text-slate-700 font-normal">
+                <div className="px-4 sm:px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 bg-[#fbfdfc] animate-in fade-in slide-in-from-top-1 duration-200 overflow-hidden">
+                  <div className="pl-6 sm:pl-10 text-slate-700 font-normal break-words">
                     {item.a}
                   </div>
                 </div>
