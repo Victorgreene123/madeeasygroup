@@ -1,7 +1,7 @@
 'use client';
 
-import React, { createContext, useContext, useState } from 'react';
-import { InspectionModal } from './InspectionModal';
+import React, { createContext, useContext } from 'react';
+import { useRouter } from 'next/navigation';
 
 interface InspectionContextType {
   openInspection: (estateSlug?: string) => void;
@@ -11,27 +11,23 @@ interface InspectionContextType {
 const InspectionContext = createContext<InspectionContextType | undefined>(undefined);
 
 export function InspectionProvider({ children }: { children: React.ReactNode }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [defaultSlug, setDefaultSlug] = useState<string | undefined>(undefined);
+  const router = useRouter();
 
   const openInspection = (estateSlug?: string) => {
-    setDefaultSlug(estateSlug);
-    setIsOpen(true);
+    if (estateSlug) {
+      router.push(`/book-inspection?estate=${encodeURIComponent(estateSlug)}`);
+    } else {
+      router.push('/book-inspection');
+    }
   };
 
   const closeInspection = () => {
-    setIsOpen(false);
-    setDefaultSlug(undefined);
+    // No-op kept for backwards compatibility
   };
 
   return (
     <InspectionContext.Provider value={{ openInspection, closeInspection }}>
       {children}
-      <InspectionModal
-        isOpen={isOpen}
-        onClose={closeInspection}
-        defaultEstateSlug={defaultSlug}
-      />
     </InspectionContext.Provider>
   );
 }
@@ -43,3 +39,4 @@ export function useInspection() {
   }
   return context;
 }
+

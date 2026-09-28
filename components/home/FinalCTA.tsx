@@ -38,13 +38,13 @@ export function FinalCTA() {
             <ArrowRight size={18} />
           </Link>
 
-          <button
-            onClick={() => openInspection()}
+          <Link
+            href="/book-inspection"
             className="inline-flex items-center gap-2 px-7 py-4 rounded-xl bg-white text-[#164E48] hover:bg-slate-100 font-bold text-base shadow-lg transition-all active:scale-[0.98]"
           >
             <Calendar size={18} className="text-[#0E6F3B]" />
             <span>Book an Inspection</span>
-          </button>
+          </Link>
         </div>
 
         <div className="pt-6 text-xs text-emerald-200/80 flex items-center justify-center gap-6">

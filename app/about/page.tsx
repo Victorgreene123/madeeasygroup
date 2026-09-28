@@ -43,24 +43,24 @@ export default function AboutPage() {
       </div>
 
       {/* Hero Banner */}
-      <div className="bg-[#164E48] text-white py-16 sm:py-24 relative overflow-hidden border-b border-[#1F7A72]/40">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#113a35] via-[#164E48] to-[#1F7A72]/80 opacity-95" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/10 text-emerald-200 border border-white/15">
+      <div className="bg-[#164E48] text-white py-10 sm:py-14 relative overflow-hidden border-b border-[#1F7A72]/40">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#113a35] via-[#164E48] to-[#1F7A72]/80 opacity-95 pointer-events-none" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/10 text-emerald-200 border border-white/15 backdrop-blur-md">
             <Award size={13} />
             <span>Over A Decade of Excellence</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white max-w-3xl leading-tight">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white max-w-3xl leading-tight">
             Making Property Ownership Easier Across Lagos
           </h1>
-          <p className="text-base sm:text-xl text-emerald-100/90 max-w-2xl leading-relaxed">
+          <p className="text-sm sm:text-base text-emerald-100/90 max-w-2xl leading-relaxed">
             {SITE_CONFIG.tagline} We are dedicated to providing secured, gated, and documented estates with stress-free installment plans.
           </p>
         </div>
       </div>
 
       {/* Trust Stats Bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 sm:-mt-7 relative z-20">
         <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 sm:p-8">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6 divide-y md:divide-y-0 md:divide-x divide-slate-100 text-center">
             {SITE_CONFIG.stats.map((stat, i) => (

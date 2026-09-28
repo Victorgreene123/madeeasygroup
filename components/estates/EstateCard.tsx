@@ -100,14 +100,13 @@ export function EstateCard({ estate, featured = false }: EstateCardProps) {
               <span>View Details</span>
               <ArrowRight size={13} />
             </Link>
-            <button
-              type="button"
-              onClick={() => openInspection(estate.slug)}
+            <Link
+              href={`/book-inspection?estate=${estate.slug}`}
               className="inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-[#0E6F3B] text-white text-xs font-semibold hover:bg-[#0b582f] transition-colors shadow-sm"
             >
               <Calendar size={13} />
               <span>Inspect</span>
-            </button>
+            </Link>
           </div>
         </div>
       </div>

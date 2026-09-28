@@ -56,14 +56,6 @@ export const WHATSAPP_CONFIG: WhatsAppConfig = {
       avatarText: 'HP',
       isAvailable: true,
     },
-    {
-      id: 'advisor-3',
-      name: 'Documentation & Allocations',
-      role: 'Client Services',
-      displayPhone: '0904 294 3116',
-      whatsappNumber: '2349042943116',
-      avatarText: 'CS',
-      isAvailable: true,
-    },
+
   ],
 };

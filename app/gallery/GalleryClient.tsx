@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Sparkles, Calendar, ChevronRight, X, Eye, ArrowRight, ShieldCheck, MapPin } from '@/components/ui/Icons';
-import { useInspection } from '@/components/ui/InspectionProvider';
 
 interface MediaItem {
   id: string;
@@ -100,7 +99,6 @@ const GALLERY_COLLECTION: MediaItem[] = [
 ];
 
 export function GalleryClient() {
-  const { openInspection } = useInspection();
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [selectedItem, setSelectedItem] = useState<MediaItem | null>(null);
 
@@ -132,24 +130,24 @@ export function GalleryClient() {
       </div>
 
       {/* Hero Banner */}
-      <div className="bg-[#164E48] text-white py-14 sm:py-20 relative overflow-hidden border-b border-[#1F7A72]/40">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#113a35] via-[#164E48] to-[#1F7A72]/80 opacity-95" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/10 text-emerald-200 border border-white/15">
+      <div className="bg-[#164E48] text-white py-8 sm:py-12 relative overflow-hidden border-b border-[#1F7A72]/40">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#113a35] via-[#164E48] to-[#1F7A72]/80 opacity-95 pointer-events-none" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-2.5">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/10 text-emerald-200 border border-white/15 backdrop-blur-md">
             <Sparkles size={13} />
             <span>Visual Evidence of Delivery</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white max-w-3xl">
+          <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white max-w-3xl">
             Life at Made Easy
           </h1>
-          <p className="text-base sm:text-lg text-emerald-100/90 max-w-2xl leading-relaxed">
+          <p className="text-sm sm:text-base text-emerald-100/90 max-w-2xl leading-relaxed">
             Take a visual tour through our gated estate developments, weekly client inspection excursions, and plot allocation celebrations.
           </p>
         </div>
       </div>
 
       {/* Filter and Count Bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-7 relative z-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-5 sm:-mt-6 relative z-20">
         <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-4 sm:p-6 flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Categories */}
           <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto scrollbar-none">
@@ -245,13 +243,13 @@ export function GalleryClient() {
               Photographs show ongoing estate infrastructure progress and client allocation moments across Lagos corridors. We invite you to join our next inspection to view the physical land in person.
             </p>
           </div>
-          <button
-            onClick={() => openInspection()}
+          <Link
+            href="/book-inspection"
             className="px-6 py-3 rounded-xl bg-[#0E6F3B] hover:bg-[#0b582f] text-white font-bold text-xs shadow-md transition-all active:scale-[0.98] flex items-center gap-2 whitespace-nowrap"
           >
             <Calendar size={15} />
             <span>Join Thursday / Saturday Inspection</span>
-          </button>
+          </Link>
         </div>
       </div>
 
@@ -309,16 +307,14 @@ export function GalleryClient() {
                   <ArrowRight size={13} />
                 </Link>
 
-                <button
-                  onClick={() => {
-                    setSelectedItem(null);
-                    openInspection();
-                  }}
+                <Link
+                  href="/book-inspection"
+                  onClick={() => setSelectedItem(null)}
                   className="px-5 py-2.5 rounded-xl bg-[#0E6F3B] hover:bg-[#0b582f] text-white font-bold text-xs shadow-md transition-all flex items-center gap-1.5"
                 >
                   <Calendar size={14} />
                   <span>Book Site Inspection</span>
-                </button>
+                </Link>
               </div>
             </div>
           </div>

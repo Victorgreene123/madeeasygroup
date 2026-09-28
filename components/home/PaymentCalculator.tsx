@@ -1,12 +1,11 @@
 'use client';
 
 import React, { useState, useId } from 'react';
+import Link from 'next/link';
 import { ESTATES_DATA } from '@/data/estates';
 import { Calculator, ArrowRight, Info, CheckCircle2, RotateCcw, Calendar } from '@/components/ui/Icons';
-import { useInspection } from '@/components/ui/InspectionProvider';
 
 export function PaymentCalculator({ initialEstateSlug }: { initialEstateSlug?: string }) {
-  const { openInspection } = useInspection();
   const defaultEstate =
     ESTATES_DATA.find((e) => e.slug === initialEstateSlug) || ESTATES_DATA[0];
 
@@ -265,14 +264,13 @@ export function PaymentCalculator({ initialEstateSlug }: { initialEstateSlug?: s
 
               {/* Action Buttons */}
               <div className="pt-6 space-y-2.5">
-                <button
-                  type="button"
-                  onClick={() => openInspection(currentEstate.slug)}
+                <Link
+                  href={`/book-inspection?estate=${currentEstate.slug}`}
                   className="w-full flex items-center justify-center gap-2 py-3.5 px-5 rounded-xl bg-[#0E6F3B] hover:bg-[#0b582f] text-white font-semibold text-sm transition-all shadow-md active:scale-[0.98]"
                 >
                   <Calendar size={16} />
                   <span>Inspect Estate with this Plan</span>
-                </button>
+                </Link>
               </div>
             </div>
           </div>

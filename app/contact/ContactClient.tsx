@@ -18,10 +18,9 @@ import {
   ShieldCheck,
   ChevronDown,
 } from '@/components/ui/Icons';
-import { useInspection } from '@/components/ui/InspectionProvider';
+import { FAQAccordion } from '@/components/ui/FAQAccordion';
 
 export function ContactClient() {
-  const { openInspection } = useInspection();
   const [selectedOfficeIndex, setSelectedOfficeIndex] = useState(0);
 
   // Form State
@@ -70,24 +69,24 @@ export function ContactClient() {
       </div>
 
       {/* Hero Banner */}
-      <div className="bg-[#164E48] text-white py-14 sm:py-20 relative overflow-hidden border-b border-[#1F7A72]/40">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#113a35] via-[#164E48] to-[#1F7A72]/80 opacity-95" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/10 text-emerald-200 border border-white/15">
+      <div className="bg-[#164E48] text-white py-8 sm:py-12 relative overflow-hidden border-b border-[#1F7A72]/40">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#113a35] via-[#164E48] to-[#1F7A72]/80 opacity-95 pointer-events-none" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-2.5">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/10 text-emerald-200 border border-white/15 backdrop-blur-md">
             <Building2 size={13} />
             <span>Customer Advisory & Offices</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white max-w-3xl">
+          <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white max-w-3xl">
             Get in Touch With Our Property Advisors
           </h1>
-          <p className="text-base sm:text-lg text-emerald-100/90 max-w-2xl leading-relaxed">
+          <p className="text-sm sm:text-base text-emerald-100/90 max-w-2xl leading-relaxed">
             Have questions about an estate, payment plan, or site inspection? Reach out to our dedicated team or visit any of our Lagos branch locations.
           </p>
         </div>
       </div>
 
       {/* Main Grid: Contact Cards + Interactive Form */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-5 sm:-mt-6 relative z-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Left Column: Direct Action & Office Cards (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
@@ -160,14 +159,13 @@ export function ContactClient() {
                 <p className="text-xs text-slate-700 leading-relaxed">
                   Join our free inspection vehicles every <strong>Thursday & Saturday by 10:00 AM</strong> departing from our Egbeda Head Office.
                 </p>
-                <button
-                  type="button"
-                  onClick={() => openInspection()}
+                <Link
+                  href="/book-inspection"
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0E6F3B] hover:text-[#0b582f] underline pt-1"
                 >
                   <span>Book Free Inspection Seat</span>
                   <ChevronRight size={13} />
-                </button>
+                </Link>
               </div>
             </div>
 
@@ -403,21 +401,15 @@ export function ContactClient() {
       </div>
 
       {/* Frequently Asked Questions on Contact */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-20">
-        <div className="text-center mb-10">
-          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-slate-600 text-sm mt-2">
-            Quick answers to common questions about visiting our offices and estates.
-          </p>
-        </div>
-
-        <div className="space-y-4">
-          {[
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 sm:mt-20">
+        <FAQAccordion
+          badge="Advisory & Visiting FAQs"
+          title="Frequently Asked Questions"
+          subtitle="Quick answers to common questions about visiting our offices, documentation pickup, and physical inspections."
+          items={[
             {
               q: 'Do I need an appointment to visit your Head Office?',
-              a: 'Walk-ins are welcomed Monday through Friday between 8:30 AM and 5:00 PM at Suite 1621, 1st Floor Yemosa Plaza, Egbeda. If you would like a private consultation with a senior executive, scheduling in advance ensures dedicated attention.',
+              a: 'Walk-ins are welcomed Monday through Friday between 8:30 AM and 5:00 PM at Suite 1621, 1st Floor Yemosa Plaza, Egbeda. If you would like a private consultation with a senior property executive, scheduling in advance ensures dedicated attention.',
             },
             {
               q: 'Is there a fee for joining the Thursday or Saturday site inspections?',
@@ -427,23 +419,17 @@ export function ContactClient() {
               q: 'Can I send a representative or surveyor to inspect on my behalf?',
               a: 'Yes, absolutely. Many of our clients in the diaspora or with busy corporate schedules send trusted representatives, family members, or independent certified surveyors to inspect and verify beacon marks.',
             },
-          ].map((faq, i) => (
-            <div
-              key={i}
-              className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-sm space-y-2"
-            >
-              <h3 className="font-bold text-slate-900 text-base flex items-center gap-2">
-                <span className="h-6 w-6 rounded-full bg-[#e8f5ed] text-[#0E6F3B] text-xs font-bold flex items-center justify-center shrink-0">
-                  ?
-                </span>
-                <span>{faq.q}</span>
-              </h3>
-              <p className="text-sm text-slate-600 pl-8 leading-relaxed">
-                {faq.a}
-              </p>
-            </div>
-          ))}
-        </div>
+            {
+              q: 'What official documentation do I receive upon payment commencement?',
+              a: 'You receive an official Made Easy Payment Receipt, Contract of Sale, and an Allocation Schedule. Once payment is completed, you receive your physical beacons, site plan, and Deed of Assignment.',
+            },
+            {
+              q: 'How can Nigerians in the diaspora verify land purchases securely?',
+              a: 'We offer end-to-end video tour inspections, certified survey coordinate verification, direct bank invoicing to our registered corporate accounts, and courier/digital delivery of all stamped title documents.',
+            },
+          ]}
+          showContactStrip={true}
+        />
       </div>
     </div>
   );

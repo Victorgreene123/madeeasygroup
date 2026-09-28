@@ -25,12 +25,12 @@ export function Footer() {
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-3">
-            <button
-              onClick={() => openInspection()}
+            <Link
+              href="/book-inspection"
               className="px-6 py-3 rounded-lg bg-[#0E6F3B] hover:bg-[#0b582f] text-white font-semibold text-sm shadow-md transition-all active:scale-[0.98]"
             >
               Book Inspection Now
-            </button>
+            </Link>
             <a
               href={`tel:${SITE_CONFIG.primaryPhone}`}
               className="px-5 py-3 rounded-lg bg-white/10 hover:bg-white/15 text-white font-medium text-sm transition-all border border-white/20 flex items-center gap-2"

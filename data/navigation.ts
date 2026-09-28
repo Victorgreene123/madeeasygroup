@@ -9,8 +9,8 @@ export const MAIN_NAV_LINKS: NavLink[] = [
   { label: 'Estates', href: '/estates' },
   { label: 'Why Made Easy', href: '/#why-made-easy' },
   { label: 'About', href: '/about' },
-  { label: 'Locations', href: '/#locations' },
   { label: 'Gallery', href: '/gallery' },
+  { label: 'Book Inspection', href: '/book-inspection' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -18,6 +18,7 @@ export const FOOTER_LINKS = {
   explore: [
     { label: 'All Estates', href: '/estates' },
     { label: 'Payment Calculator', href: '/#calculator' },
+    { label: 'Book an Inspection', href: '/book-inspection' },
     { label: 'Why Made Easy', href: '/#why-made-easy' },
     { label: 'How It Works', href: '/#how-it-works' },
     { label: 'Photo Gallery', href: '/gallery' },
@@ -27,7 +28,7 @@ export const FOOTER_LINKS = {
     { label: 'Our Mission & Vision', href: '/about#mission' },
     { label: 'Core Values', href: '/about#values' },
     { label: 'Contact & Offices', href: '/contact' },
-    { label: 'Book an Inspection', href: '/contact?type=inspection' },
+    { label: 'Book an Inspection', href: '/book-inspection' },
   ],
   estatesQuick: [
     { label: 'City of Joy (Magboro)', href: '/estates/city-of-joy-estate' },

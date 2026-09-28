@@ -21,6 +21,7 @@ import {
 } from '@/components/ui/Icons';
 import { useInspection } from '@/components/ui/InspectionProvider';
 import { PaymentCalculator } from '@/components/home/PaymentCalculator';
+import { FAQAccordion } from '@/components/ui/FAQAccordion';
 
 export function EstateDetailsClient({ estate }: { estate: Estate }) {
   const { openInspection } = useInspection();
@@ -68,10 +69,10 @@ export function EstateDetailsClient({ estate }: { estate: Estate }) {
       </div>
 
       {/* Main Estate Hero & Gallery Section */}
-      <div className="bg-white border-b border-slate-200 py-8 lg:py-12">
+      <div className="bg-white border-b border-slate-200 py-6 sm:py-8 lg:py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Title Header */}
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-8">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 mb-6">
             <div className="space-y-2">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#e8f5ed] text-[#0E6F3B] border border-[#c3e7d1]">
@@ -93,13 +94,13 @@ export function EstateDetailsClient({ estate }: { estate: Estate }) {
 
             {/* Quick CTA Actions */}
             <div className="flex flex-wrap items-center gap-3">
-              <button
-                onClick={() => openInspection(estate.slug)}
+              <Link
+                href={`/book-inspection?estate=${estate.slug}`}
                 className="px-6 py-3.5 rounded-xl bg-[#0E6F3B] hover:bg-[#0b582f] text-white font-bold text-sm shadow-md transition-all active:scale-[0.98] flex items-center gap-2"
               >
                 <Calendar size={18} />
                 <span>Book Free Inspection</span>
-              </button>
+              </Link>
               <a
                 href={`tel:${SITE_CONFIG.primaryPhone}`}
                 className="px-5 py-3.5 rounded-xl border border-slate-300 hover:bg-slate-50 text-slate-700 font-semibold text-sm transition-colors flex items-center gap-2"
@@ -219,12 +220,12 @@ export function EstateDetailsClient({ estate }: { estate: Estate }) {
 
               <div className="p-4 rounded-xl bg-[#e8f5ed]/60 border border-[#c3e7d1] text-xs sm:text-sm text-[#0E6F3B] flex items-center justify-between">
                 <span className="font-semibold">Official Pricing: {estate.priceNotice}</span>
-                <button
-                  onClick={() => openInspection(estate.slug)}
+                <Link
+                  href={`/book-inspection?estate=${estate.slug}`}
                   className="font-bold underline hover:text-[#0b582f]"
                 >
                   Request Official Price List
-                </button>
+                </Link>
               </div>
             </div>
 
@@ -247,39 +248,14 @@ export function EstateDetailsClient({ estate }: { estate: Estate }) {
             </div>
 
             {/* Estate FAQ */}
-            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm space-y-6">
-              <h2 className="text-2xl font-bold text-slate-900">
-                Frequently Asked Questions
-              </h2>
-              <div className="space-y-3">
-                {faqs.map((faq, idx) => {
-                  const isOpen = openFaqIndex === idx;
-                  return (
-                    <div
-                      key={idx}
-                      className="border border-slate-200 rounded-xl overflow-hidden transition-all"
-                    >
-                      <button
-                        onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
-                        className="w-full p-4 text-left flex items-center justify-between gap-4 font-semibold text-sm sm:text-base text-slate-800 hover:bg-slate-50"
-                      >
-                        <span>{faq.q}</span>
-                        <ChevronDown
-                          size={18}
-                          className={`text-slate-400 transition-transform duration-200 shrink-0 ${
-                            isOpen ? 'rotate-180 text-[#0E6F3B]' : ''
-                          }`}
-                        />
-                      </button>
-                      {isOpen && (
-                        <div className="px-4 pb-4 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3 bg-slate-50/50">
-                          {faq.a}
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm">
+              <FAQAccordion
+                items={faqs}
+                title={`Questions About ${estate.name}`}
+                subtitle="Everything you need to know regarding title documentation, physical allocations, and building guidelines."
+                badge="Estate Q&A"
+                showContactStrip={true}
+              />
             </div>
           </div>
 
@@ -311,13 +287,12 @@ export function EstateDetailsClient({ estate }: { estate: Estate }) {
                   </div>
                 </div>
 
-                <button
-                  type="button"
-                  onClick={() => openInspection(estate.slug)}
-                  className="w-full py-3.5 px-4 rounded-xl bg-[#0E6F3B] hover:bg-[#0b582f] text-white font-bold text-sm shadow-md transition-all active:scale-[0.98] text-center"
+                <Link
+                  href={`/book-inspection?estate=${estate.slug}`}
+                  className="w-full block py-3.5 px-4 rounded-xl bg-[#0E6F3B] hover:bg-[#0b582f] text-white font-bold text-sm shadow-md transition-all active:scale-[0.98] text-center"
                 >
                   Reserve Your Seat
-                </button>
+                </Link>
 
                 <div className="pt-3 border-t border-[#1F7A72]/40 text-center">
                   <div className="text-[11px] text-emerald-200">Or speak directly with an advisor:</div>

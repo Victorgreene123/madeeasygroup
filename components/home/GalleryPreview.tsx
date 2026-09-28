@@ -1,11 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { Sparkles, Calendar, CheckCircle2 } from '@/components/ui/Icons';
-import { useInspection } from '@/components/ui/InspectionProvider';
 
 export function GalleryPreview() {
-  const { openInspection } = useInspection();
   const [activeCategory, setActiveCategory] = useState<string>('All');
 
   const categories = [
@@ -130,13 +129,13 @@ export function GalleryPreview() {
           <p className="text-xs text-slate-500 text-center sm:text-left">
             * Gallery illustrates representative community site developments & allocation moments. Join our weekly visits to experience live estate progress in person.
           </p>
-          <button
-            onClick={() => openInspection()}
+          <Link
+            href="/book-inspection"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#0E6F3B] hover:bg-[#0b582f] text-white font-semibold text-xs transition-colors shrink-0"
           >
             <Calendar size={14} />
             <span>Join Next Inspection Tour</span>
-          </button>
+          </Link>
         </div>
       </div>
     </section>

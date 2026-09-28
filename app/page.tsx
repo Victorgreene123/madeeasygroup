@@ -7,6 +7,7 @@ import { HowItWorks } from '@/components/home/HowItWorks';
 import { AboutPreview } from '@/components/home/AboutPreview';
 import { Locations } from '@/components/home/Locations';
 import { GalleryPreview } from '@/components/home/GalleryPreview';
+import { FAQSection } from '@/components/home/FAQSection';
 import { FinalCTA } from '@/components/home/FinalCTA';
 
 export default function HomePage() {
@@ -21,6 +22,7 @@ export default function HomePage() {
       <AboutPreview />
       <Locations />
       <GalleryPreview />
+      <FAQSection />
       <FinalCTA />
     </div>
   );
